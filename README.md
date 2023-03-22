@@ -1,5 +1,5 @@
 # spotify-desktop-free-version-addblocker
-python based .exe.
+python based tray application.
 this only works for spotify desktop (free version)
 
 installation:
