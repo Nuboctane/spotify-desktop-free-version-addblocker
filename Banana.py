@@ -23,7 +23,11 @@ banana=r'assets\banana.ico'
 myappid = 'mycompany.myproduct.subproduct.version'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
-
+# hide cmd
+import win32console
+import win32gui
+win = win32console.GetConsoleWindow()
+win32gui.ShowWindow(win, 0)
 
 class Actions():
 
@@ -330,7 +334,7 @@ class GUI():
             label.pack(padx=5,pady=5, side=RIGHT)
         if textvariable!="No path selected":
             if 'spotify' in str(textvariable).lower() and '.exe' in str(textvariable).lower():
-                submit = tk.Button(main,text ='start banana', bg='black', fg='lime',command =lambda: remote.start(master))
+                submit = tk.Button(main,text ='start', bg='black', fg='lime',command =lambda: remote.start(master))
                 submit.pack(pady=5,side=RIGHT)
             elif not '.exe' in str(textvariable).lower():
                 submit = tk.Button(main,text ='path to file needs to be a .exe', bg='black', fg='grey')
@@ -339,7 +343,7 @@ class GUI():
                 submit = tk.Button(main,text ='Invalid path, start anyway?', bg='black', fg='orange',command =lambda: remote.start(master))
                 submit.pack(pady=5,side=RIGHT)
         elif textvariable=="No path selected":
-            submit = tk.Button(main,text ='start banana', bg='black', fg='grey')
+            submit = tk.Button(main,text ='start', bg='black', fg='grey')
             submit.pack(pady=5,side=RIGHT)
 
         master.protocol("WM_DELETE_WINDOW", lambda:GUI.on_closing(self))
